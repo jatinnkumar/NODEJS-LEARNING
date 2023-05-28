@@ -1,0 +1,23 @@
+const fs = require('fs');
+
+// Created Folder
+fs.mkdirSync('TestFolder');
+
+// Created File in the above folder and added some data in the file
+fs.writeFileSync('TestFolder/bio.txt', 'Hello my name Jatin.');
+
+//  Added more data in the existing file
+fs.appendFileSync('TestFolder/bio.txt', ' Appended mode data in the file.');
+
+// Read the file without getting buffer data at first
+const fileData = fs.readFileSync('TestFolder/bio.txt', 'utf8');
+console.log(fileData);
+
+// Rename the file 
+fs.renameSync('TestFolder/bio.txt', 'TestFolder/bioNew.txt');
+
+// Delete file
+fs.unlinkSync('TestFolder/bioNew.txt');
+
+// Delete Folder
+fs.rmdirSync('TestFolder');

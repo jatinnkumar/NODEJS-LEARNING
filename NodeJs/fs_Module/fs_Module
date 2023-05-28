@@ -1,0 +1,44 @@
+const fs = require("fs");
+
+// Created Folder
+fs.mkdir("New_Folder",
+    (err) => {
+        console.log('Folder Created !');
+    });
+
+// Created File in the above folder and added some data in the file
+fs.writeFile("New_Folder/text.txt", "This file is created using nodejs.",
+    (err) => {
+        console.log('File Created !');
+    });
+
+//  Added more data in the existing file
+fs.appendFile("New_Folder/text.txt", "This is additional data.",
+    (err) => {
+        console.log("Data Added !");
+    });
+
+// Read the file without getting buffer data at first
+fs.readFile("New_Folder/text.txt", "utf8",
+    (err, data) => {
+        console.log(data);
+    });
+
+// Rename the file
+fs.rename("New_Folder/text.txt", "New_Folder/newText.txt",
+    (err) => {
+        console.log("File Renamed !");
+    });
+
+// Delete file
+fs.unlink("New_Folder/newText.txt",
+    (err) => {
+        console.log("File Deleted !");
+    });
+
+// Delete Folder
+fs.rmdir("New_Folder",
+    (err) => {
+        console.log("Folder Deleted !");
+    });
+
